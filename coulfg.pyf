@@ -1,0 +1,25 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module coulfg ! in 
+    interface  ! in :coulfg
+        subroutine coulfg(xx,eta1,xlmin,xlmax,fc,gc,fcp,gcp,mode1,kfn,ifail,m1) ! in :coulfg:coulfg1.f
+            real*8, required,intent(in):: xx
+            real*8, required,intent(in):: eta1
+            real*8, required,intent(in) :: xlmin
+            real*8, required,intent(in) :: xlmax
+            real*8, intent(out), dimension(xlmax - xlmin),check(shape(fc, 0) == xlmax - xlmin,shape(fc, 0) == xlmax - xlmin),depend(xlmin,xlmax) :: fc
+            real*8, intent(out), dimension(xlmax - xlmin),check(shape(gc, 0) == xlmax - xlmin,shape(gc, 0) == xlmax - xlmin),depend(xlmin,xlmax) :: gc
+            real*8, intent(out), dimension(xlmax - xlmin),check(shape(fcp, 0) == xlmax - xlmin,shape(fcp, 0) == xlmax - xlmin),depend(xlmin,xlmax) :: fcp
+            real*8, intent(out), dimension(xlmax - xlmin),check(shape(gcp, 0) == xlmax - xlmin,shape(gcp, 0) == xlmax - xlmin),depend(xlmin,xlmax) :: gcp
+            integer :: mode1 = 1
+            integer :: kfn = 0
+            integer, intent(hide):: ifail
+            integer, intent(hide):: m1
+        end subroutine coulfg
+    end interface 
+end python module coulfg
+
+! This file was auto-generated with f2py (version:1.26.4).
+! See:
+! https://web.archive.org/web/20140822061353/http://cens.ioc.ee/projects/f2py2e
